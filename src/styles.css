@@ -1,0 +1,62 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a, a:hover, a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+a:hover, a.active:hover {
+  color: orange;
+}
+
+a.active {
+  color: orangered;
+}
+
+html, body, app-root, .container {
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 240px 3fr;
+  grid-template-areas:
+    'header header'
+    'nav    content';
+}
+
+.container > header {
+  grid-area: header;
+  padding: 10px;
+  background: #66e;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 2px 4px #eee;
+}
+
+.container > nav {
+  grid-area: nav;
+  border-right: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.container > .content {
+  grid-area: content;
+  padding: 10px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 0;
+}
