@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
         <ul>
           <li><a routerLinkActive='active' routerLink="/module-a/page-1">Page One</a></li>
           <li><a routerLinkActive='active' routerLink="/module-a/page-2">Page Two</a></li>
+          <li><a routerLinkActive='active' routerLink="/module-a/shared-page-1">Shared One</a></li>
+          <li><a routerLinkActive='active' routerLink="/module-a/shared-page-2">Shared Two</a></li>
         </ul>
       </li>
       <li>
@@ -18,6 +20,8 @@ import { Component } from '@angular/core';
         <ul>
           <li><a routerLinkActive='active' routerLink="/module-b/page-1">Page One</a></li>
           <li><a routerLinkActive='active' routerLink="/module-b/page-2">Page Two</a></li>
+          <li><a routerLinkActive='active' routerLink="/module-b/shared-page-1">Shared One</a></li>
+          <li><a routerLinkActive='active' routerLink="/module-b/shared-page-2">Shared Two</a></li>
         </ul>
       </li>
       <li>

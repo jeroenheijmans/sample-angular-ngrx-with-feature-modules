@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LazyModuleARoutingModule } from './lazy-module-a-routing.module';
 import { PageOneComponent } from './page-one.component';
 import { PageTwoComponent } from './page-two.component';
+import { LazySharedModule } from '@shared/lazy-shared.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { PageTwoComponent } from './page-two.component';
   ],
   imports: [
     CommonModule,
+    LazySharedModule,
     LazyModuleARoutingModule,
   ]
 })
