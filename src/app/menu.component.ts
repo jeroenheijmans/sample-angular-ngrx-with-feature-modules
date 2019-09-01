@@ -20,6 +20,13 @@ import { Component } from '@angular/core';
           <li><a routerLinkActive='active' routerLink="/module-b/page-2">Page Two</a></li>
         </ul>
       </li>
+      <li>
+        <a routerLinkActive='active' routerLink="/module-x">Standard Module X</a>
+        <ul>
+          <li><a routerLinkActive='active' routerLink="/module-x/page-1">Page One</a></li>
+          <li><a routerLinkActive='active' routerLink="/module-x/page-2">Page Two</a></li>
+        </ul>
+      </li>
     </ul>
   `,
 })
