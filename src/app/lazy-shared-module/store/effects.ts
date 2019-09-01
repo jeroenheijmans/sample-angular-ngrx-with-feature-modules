@@ -1,5 +1,5 @@
 import { Injectable, Inject } from "@angular/core";
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { createEffect, Actions, ofType, OnIdentifyEffects } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -8,7 +8,10 @@ import { SharedService } from '@shared/shared.service';
 import { SHARED_MODULE_KEY } from '@shared/module-tokens';
 
 @Injectable()
-export class ItemEffects {
+export class ItemEffects implements OnIdentifyEffects {
+  ngrxOnIdentifyEffects(): string {
+    return this.moduleKey;
+  }
 
   getItem$ = createEffect(() => this.actions$.pipe(
     ofType(`[${this.moduleKey}] Get result`),
