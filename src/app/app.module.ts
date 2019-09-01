@@ -1,29 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu.component';
 import { HomeComponent } from './home.component';
 import { StandardModuleX } from './standard-module-x/standard-module-x.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-import { CustomSerializer } from './custom-router-state-serializer';
+import { CustomSerializer } from './store/custom-router-state-serializer';
+import { AppHeaderComponent } from './app-header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppHeaderComponent,
     HomeComponent,
     MenuComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     StandardModuleX,
     StoreModule.forRoot(reducers, {
