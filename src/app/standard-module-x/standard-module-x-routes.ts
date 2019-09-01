@@ -5,7 +5,6 @@ import { PageTwoComponent } from './page-two.component';
 
 export const standardModuleXRoutes: Route = {
   path: 'module-x',
-  component: PageOneComponent,
   children: [
     {
       path: '',
