@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
-import { StandardService } from './standard.service';
+import { Store } from '@ngrx/store';
+import { getResultStart } from './store/actions';
+import { selectApiResults, selectIsBusy, selectServiceName } from './store/selectors';
 
 @Component({
   selector: 'app-page-one',
   template: `
     <h2>Standard Module X: Page 1</h2>
-    <p><button (click)="onGetItem()">{{ service.name }} item (get)</button></p>
-    <p>Results:</p>
-    <pre>{{ data | json }}</pre>
+    <p>Uses NgRx Effects and the Store to handle side effects via a service.</p>
+    <p><button (click)="onGetItem()">{{ serviceName$ | async }} item (get)</button></p>
+    <p>Results: <span *ngIf="isBusy$ | async">(loading...)</span></p>
+    <pre>{{ data$ | async | json }}</pre>
   `
 })
 export class PageOneComponent {
-  data = [];
+  data$ = this.store.select(selectApiResults);
+  isBusy$ = this.store.select(selectIsBusy);
+  serviceName$ = this.store.select(selectServiceName);
 
-  constructor(public service: StandardService) { }
+  constructor(
+    private store: Store<{}>,
+  ) { }
 
   onGetItem() {
-    this.service.getItem().subscribe(r => this.data.push(r));
+    this.store.dispatch(getResultStart());
   }
 
 }

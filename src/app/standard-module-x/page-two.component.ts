@@ -5,6 +5,7 @@ import { StandardService } from './standard.service';
   selector: 'app-page-two',
   template: `
     <h2>Standard Module X: Page 2</h2>
+    <p>Plain old component using a service directly for causing side-effects.</p>
     <p><button (click)="onGetItem()">{{ service.name }} item (get)</button></p>
     <p>Results:</p>
     <pre>{{ data | json }}</pre>
