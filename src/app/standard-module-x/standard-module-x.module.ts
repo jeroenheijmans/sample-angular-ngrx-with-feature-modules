@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PageOneComponent } from './page-one.component';
 import { PageTwoComponent } from './page-two.component';
+import { StandardService } from './standard.service';
 
 
 @NgModule({
@@ -12,6 +13,9 @@ import { PageTwoComponent } from './page-two.component';
   ],
   imports: [
     CommonModule,
-  ]
+  ],
+  providers: [
+    StandardService,
+  ],
 })
 export class StandardModuleX { }

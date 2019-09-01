@@ -11,6 +11,13 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+pre {
+  padding: .5em;
+  border: 1px solid #aaa;
+  background: #eee;
+  box-shadow: inset 2px 2px 4px #ddd;
+}
+
 a, a:hover, a:link, a:active, a:visited {
   text-decoration: none;
 }
@@ -21,6 +28,19 @@ a:hover, a.active:hover {
 
 a.active {
   color: orangered;
+}
+
+button {
+  padding: .5em 1em;
+  color: #fff;
+  background: orangered;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 2px 2px 4px #ccc;
 }
 
 html, body, app-root, .container {
