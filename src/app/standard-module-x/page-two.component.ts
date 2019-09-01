@@ -5,7 +5,7 @@ import { StandardService } from './standard.service';
   selector: 'app-page-two',
   template: `
     <h2>Standard Module X: Page 2</h2>
-    <p><button (click)="onGetItem()">Get item from StandardService</button></p>
+    <p><button (click)="onGetItem()">Get item from Standard Service</button></p>
     <p>Results:</p>
     <pre>{{ data | json }}</pre>
   `
