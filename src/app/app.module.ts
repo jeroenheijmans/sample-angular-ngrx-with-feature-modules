@@ -12,9 +12,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
 import { CustomSerializer } from './store/custom-router-state-serializer';
 import { AppHeaderComponent } from './app-header.component';
+import { AuthEffects } from './store/global/effects';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -38,9 +39,9 @@ import { AppHeaderComponent } from './app-header.component';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer }),
-    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forRoot([AuthEffects]),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

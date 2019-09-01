@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { State } from './store/state';
 import { Store, select } from '@ngrx/store';
-import { selectStyle } from './store/global/selectors';
+import { selectContainerStyleInfo } from './store/global/selectors';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -19,9 +19,10 @@ import { takeUntil } from 'rxjs/operators';
     '.comic { font-family: "MV Boli", cursive; }',
     '.print { font-family: "Georgia", serif; }',
     '.screaming { text-transform: uppercase; }',
+    '.busy { pointer-events: none; opacity: 0.5; }',
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   containerClasses = 'container';
   componentDestroyed$ = new Subject();
 
@@ -29,8 +30,18 @@ export class AppComponent {
     private store: Store<State>,
   ) {
     this.store.pipe(
-      select(selectStyle),
+      select(selectContainerStyleInfo),
       takeUntil(this.componentDestroyed$),
-    ).subscribe(s => this.containerClasses = `container ${s.theme} ${s.screaming ? 'screaming' : ''}`);
+    ).subscribe(state => this.containerClasses = [
+      'container',
+      state.style.theme,
+      state.style.screaming && 'screaming',
+      state.isBusy && 'busy',
+    ].filter(Boolean).join(' '));
+  }
+
+  ngOnDestroy() {
+    this.componentDestroyed$.next();
+    this.componentDestroyed$.complete();
   }
 }

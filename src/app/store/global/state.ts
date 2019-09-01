@@ -8,4 +8,6 @@ interface StyleState {
 export interface GlobalState {
   style: StyleState;
   loggedIn: boolean;
+  loginError: boolean;
+  isBusy: boolean;
 }

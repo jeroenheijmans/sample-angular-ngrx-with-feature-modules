@@ -43,6 +43,14 @@ button:hover {
   box-shadow: 2px 2px 4px #ccc;
 }
 
+input[type=text], input[type=password] {
+  padding: .3rem;
+}
+
+input.error {
+  border: 1px solid orangered;
+}
+
 label {
   cursor: pointer;
 }
