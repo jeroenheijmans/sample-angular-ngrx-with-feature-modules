@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedPageOneComponent } from './shared-page-one.component';
 import { SharedPageTwoComponent } from './shared-page-two.component';
 import { SharedService } from './shared.service';
-
 
 @NgModule({
   declarations: [

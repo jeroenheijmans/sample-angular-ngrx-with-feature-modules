@@ -19,7 +19,7 @@ import { moduleXFeatureKey } from './store/state';
   imports: [
     CommonModule,
     StoreModule.forFeature(moduleXFeatureKey, moduleXStateReducer),
-    EffectsModule.forFeature([ItemEffects])
+    EffectsModule.forFeature([ItemEffects]),
   ],
   providers: [
     StandardService,

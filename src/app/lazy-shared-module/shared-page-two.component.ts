@@ -5,6 +5,7 @@ import { SharedService } from './shared.service';
   selector: 'app-page-two',
   template: `
     <h2>Lazy Shared Module: Page 2</h2>
+    <p>Plain old component using a service directly for causing side-effects.</p>
     <p><button (click)="onGetItem()">{{ service.name }} item (get)</button></p>
     <p>Results:</p>
     <pre>{{ data | json }}</pre>
