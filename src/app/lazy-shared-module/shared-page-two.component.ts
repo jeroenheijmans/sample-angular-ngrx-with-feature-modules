@@ -5,7 +5,7 @@ import { SharedService } from './shared.service';
   selector: 'app-page-two',
   template: `
     <h2>Lazy Shared Module: Page 2</h2>
-    <p><button (click)="onGetItem()">Get item from Shared Service</button></p>
+    <p><button (click)="onGetItem()">{{ service.name }} item (get)</button></p>
     <p>Results:</p>
     <pre>{{ data | json }}</pre>
   `
@@ -13,10 +13,10 @@ import { SharedService } from './shared.service';
 export class SharedPageTwoComponent {
   data = [];
 
-  constructor(private standardService: SharedService) { }
+  constructor(public service: SharedService) { }
 
   onGetItem() {
-    this.standardService.getItem().subscribe(r => this.data.push(r));
+    this.service.getItem().subscribe(r => this.data.push(r));
   }
 
 }
